@@ -44,7 +44,7 @@ const AnalyticsDashboard = ({ avgVisitorsPerDay, amtVisitorsToday, timeseriesPag
             </Card>
 
             <Card className="w-full mx-auto max-w-xs">
-                <p className="text-tremor-default text-dark-tremor-content"> Visitors today</p>
+                <p className="flex gap-2.5 items-center text-tremor-default text-dark-tremor-content"> Visitors today</p>
                 <p className="text-3x1 text-dark-tremor-content-strong font-semibold">{amtVisitorsToday}</p>
                 <Badge percentage={(amtVisitorsToday / Number(avgVisitorsPerDay) - 1) * 100} />
             </Card>
@@ -53,7 +53,7 @@ const AnalyticsDashboard = ({ avgVisitorsPerDay, amtVisitorsToday, timeseriesPag
             <h2 className='w-full text-dark-tremor-content-strong text-center sm:left-left font-semibold text-xl'>This week top visitors:</h2>
             <div className='col-span-3 flex items-center justify-between flex-wrap gap-8'>
                 {topCountries?.map(([countryCode, number]) => {
-                    return <div className='flex items-center gap-3 text-dark-tremor-content-strong'>
+                    return <div key={countryCode} className='flex items-center gap-3 text-dark-tremor-content-strong'>
                         <p className='hidden sm:block text-tremor-content'>{countryCode}</p>
                         <ReactCountryFlag className='text-5x1 sm:text-3x1' svg countryCode={countryCode} />
                         <p className='text-tremor-content sm:text-dark-tremor-content-strong'>{number}</p>
